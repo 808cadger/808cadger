@@ -1,5 +1,7 @@
 # v0 Facial Recognition App
 
+https://youtu.be/AtEAIHyb-sg
+
 Real-time face detection and recognition using OpenCV and Python. Built to showcase computer vision skills for AGI, robotics, and ML roles.
 
 ## Key Tech
