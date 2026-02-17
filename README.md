@@ -1,4 +1,4 @@
-# v0 Facial Recognition App
+# GlowAI
 
 https://youtu.be/AtEAIHyb-sg
 
