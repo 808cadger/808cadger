@@ -1,4 +1,4 @@
-# Hey, I'm Chris 👋
+# Hey, I'm Christopher 👋
 
 **AI Engineer** based in Honolulu, Hawaii 🌺
 
