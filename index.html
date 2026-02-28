@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christopher Cadger — AI Engineer</title>
+  <meta name="description" content="AI Engineer based in Honolulu, Hawaii. Building intelligent apps with Claude AI, Python, and computer vision." />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14;
+      --surface: #0e1422;
+      --surface2: #141b2d;
+      --border: #1e2d4a;
+      --accent: #00c8ff;
+      --accent2: #7c3aed;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --card-hover: #162035;
+      --radius: 12px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(8, 12, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700; color: var(--text);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,200,255,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,58,237,0.07) 0%, transparent 60%);
+    }
+    .hero-inner { position: relative; max-width: 720px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,200,255,0.1);
+      border: 1px solid rgba(0,200,255,0.25);
+      color: var(--accent);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      padding: 0.35rem 1rem; border-radius: 999px;
+      margin-bottom: 1.5rem; text-transform: uppercase;
+    }
+    .hero-name {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800; line-height: 1.1;
+      background: linear-gradient(135deg, #fff 40%, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--muted); margin-bottom: 0.75rem;
+    }
+    .hero-sub {
+      font-size: 0.95rem; color: var(--muted);
+      margin-bottom: 2.5rem; max-width: 540px; margin-left: auto; margin-right: auto;
+    }
+    .hero-sub span { color: var(--text); }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem; border-radius: var(--radius);
+      font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s; text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #0099cc);
+      color: #000;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); text-decoration: none; }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text); background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .hero-location {
+      margin-top: 2rem; font-size: 0.85rem; color: var(--muted);
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    }
+
+    /* ── Section base ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800; margin-bottom: 1rem;
+    }
+    .section-desc { color: var(--muted); max-width: 600px; margin-bottom: 3rem; }
+
+    /* ── About ── */
+    #about { background: var(--surface); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .about-text strong { color: var(--text); }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 2rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-card .label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ── Projects ── */
+    #projects { background: var(--bg); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .project-card:hover { border-color: rgba(0,200,255,0.3); background: var(--card-hover); transform: translateY(-2px); }
+    .project-card:hover::before { opacity: 1; }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; gap: 1rem; }
+    .project-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .project-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .badge {
+      font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.6rem;
+      border-radius: 999px; background: rgba(0,200,255,0.08);
+      border: 1px solid rgba(0,200,255,0.2); color: var(--accent);
+    }
+    .badge.purple { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.3); color: #a78bfa; }
+    .badge.green  { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.25); color: #34d399; }
+    .badge.orange { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.25); color: #fbbf24; }
+    .project-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .project-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .project-highlights { list-style: none; margin-bottom: 1.5rem; }
+    .project-highlights li {
+      font-size: 0.85rem; color: var(--muted); padding: 0.25rem 0;
+      padding-left: 1.2rem; position: relative;
+    }
+    .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+    .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .project-link {
+      font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem;
+      border-radius: 8px; border: 1px solid var(--border);
+      color: var(--text); transition: all 0.2s; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .project-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .project-link.live {
+      background: linear-gradient(135deg, var(--accent), #0099cc);
+      color: #000; border-color: transparent;
+    }
+    .project-link.live:hover { opacity: 0.85; color: #000; }
+
+    /* ── Skills ── */
+    #skills { background: var(--surface); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-group {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .skill-group-title {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      font-size: 0.82rem; padding: 0.3rem 0.75rem;
+      border-radius: 6px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border); color: var(--text);
+    }
+
+    /* ── Cert ── */
+    #certifications { background: var(--bg); }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius); padding: 1.75rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      max-width: 640px;
+    }
+    .cert-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .cert-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .cert-body p { color: var(--muted); font-size: 0.9rem; }
+    .cert-body .cert-year {
+      display: inline-block; margin-top: 0.5rem;
+      font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem;
+      background: rgba(0,200,255,0.1); border: 1px solid rgba(0,200,255,0.25);
+      color: var(--accent); border-radius: 999px;
+    }
+
+    /* ── Contact ── */
+    #contact { background: var(--surface); text-align: center; }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact-links {
+      display: flex; gap: 1rem; justify-content: center;
+      flex-wrap: wrap; margin-top: 2rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: var(--radius);
+      border: 1px solid var(--border); color: var(--text);
+      font-size: 0.9rem; font-weight: 500; transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.85rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <span class="nav-logo">Chris Cadger</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Open to Junior AI / ML Roles</div>
+      <h1 class="hero-name">Christopher Cadger</h1>
+      <p class="hero-tagline">AI Engineer &nbsp;·&nbsp; App Builder &nbsp;·&nbsp; Problem Solver</p>
+      <p class="hero-sub">
+        I build <span>production AI apps</span> with Claude, Python, and computer vision —
+        shipping real tools that solve real problems.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">See My Work</a>
+        <a href="https://github.com/808cadger" target="_blank" rel="noopener" class="btn btn-outline">
+          <!-- GitHub icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <p class="hero-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Honolulu, Hawaii
+      </p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">About Me</p>
+      <h2 class="section-title">From Superintendent to AI Engineer</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I spent over <strong>25 years</strong> managing complex construction projects in Hawaii —
+            coordinating crews, reading technical blueprints, and making high-stakes decisions under pressure.
+            Then I discovered AI engineering and never looked back.
+          </p>
+          <p>
+            In 2025 I earned my <strong>IBM AI Engineering Professional Certificate</strong> and immediately
+            started shipping: a Claude-powered skincare app, an AI identity-verification travel platform,
+            and a real-time computer vision safety monitor.
+          </p>
+          <p>
+            I bring the discipline of a project superintendent and the curiosity of someone who genuinely
+            loves this field. My background means I understand <strong>real-world constraints</strong>,
+            not just theory — and I build tools that work in production.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="num">3+</div>
+            <div class="label">AI Apps Shipped</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">25+</div>
+            <div class="label">Years Leadership</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">IBM</div>
+            <div class="label">AI Certified 2025</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">HNL</div>
+            <div class="label">Based in Hawaii</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">Projects</p>
+      <h2 class="section-title">Things I've Built</h2>
+      <p class="section-desc">All projects are live and deployed — not just demos.</p>
+
+      <div class="projects-grid">
+
+        <!-- GlowAI -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #ff6b9d22, #ff6b9d44);">✨</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge">Claude AI</span>
+            <span class="badge purple">Agentic AI</span>
+            <span class="badge green">Live on Vercel</span>
+            <span class="badge orange">Android App</span>
+          </div>
+          <h3 class="project-title">GlowAI — AI Skincare Assistant</h3>
+          <p class="project-desc">
+            A full mobile app powered by an agentic Claude AI loop. Analyzes your skin,
+            builds personalized AM/PM routines, explains ingredients, and tracks progress —
+            all via multi-step tool-use chaining.
+          </p>
+          <ul class="project-highlights">
+            <li>Agentic tool-use loop with 5 custom AI tools</li>
+            <li>Personalized onboarding quiz and skin profile</li>
+            <li>AM/PM routine tracker with streaks</li>
+            <li>Packaged as native Android app via Capacitor</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://quickapp-three.vercel.app" target="_blank" rel="noopener" class="project-link live">Live App</a>
+            <a href="https://github.com/808cadger/GlowAI" target="_blank" rel="noopener" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Archer Travel -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #00c8ff22, #00c8ff44);">✈️</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge">Claude Vision</span>
+            <span class="badge purple">Computer Vision</span>
+            <span class="badge green">Live on Vercel</span>
+          </div>
+          <h3 class="project-title">Archer Travel — AI Identity Verification</h3>
+          <p class="project-desc">
+            Travel booking platform with AI-powered identity verification. Claude Vision
+            compares a selfie against a government-issued ID and returns a confidence score —
+            all processed client-side for privacy.
+          </p>
+          <ul class="project-highlights">
+            <li>Claude Vision API for document + face matching</li>
+            <li>Confidence score JSON returned in real time</li>
+            <li>Privacy-first: images never retained after session</li>
+            <li>Zero dependencies — single HTML file, no build step</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://archertravel.vercel.app" target="_blank" rel="noopener" class="project-link live">Live App</a>
+            <a href="https://github.com/808cadger/archer-travel" target="_blank" rel="noopener" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Construction Safety AI -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #f59e0b22, #f59e0b44);">🦺</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge">YOLOv8</span>
+            <span class="badge purple">Python</span>
+            <span class="badge orange">Computer Vision</span>
+          </div>
+          <h3 class="project-title">Construction Safety AI</h3>
+          <p class="project-desc">
+            Production-ready computer vision system that monitors construction sites in real time,
+            detecting PPE compliance (hard hats, vests, goggles) and generating violation reports.
+            Built with YOLOv8 and 25 years of on-site domain expertise.
+          </p>
+          <ul class="project-highlights">
+            <li>Real-time PPE detection via YOLOv8</li>
+            <li>Automated violation report generation</li>
+            <li>Domain expertise built into model tuning</li>
+            <li>Python, OpenCV, Ultralytics stack</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/808cadger/construction-safety-ai" target="_blank" rel="noopener" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <!-- TravelGuide LeiWay -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(135deg, #10b98122, #10b98144);">🌺</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge green">Hawaii</span>
+            <span class="badge">Discovery Platform</span>
+          </div>
+          <h3 class="project-title">TravelGuide LeiWay</h3>
+          <p class="project-desc">
+            A Hawaii-focused location discovery platform with reviews, AI-powered recommendations,
+            and rich regional historical context. Built for locals and visitors to explore the islands.
+          </p>
+          <ul class="project-highlights">
+            <li>Location discovery with regional context</li>
+            <li>Review and recommendation engine</li>
+            <li>Hawaii-specific cultural and historical data</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/808cadger/travelguide-leiway" target="_blank" rel="noopener" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">Technical Toolkit</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">AI &amp; Machine Learning</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Claude AI (Anthropic)</span>
+            <span class="skill-tag">Agentic Tool-Use</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">YOLOv8</span>
+            <span class="skill-tag">Neural Networks</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Prompt Engineering</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Languages &amp; Frameworks</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML / CSS</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Capacitor</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Tools &amp; Platforms</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Android Studio</span>
+            <span class="skill-tag">Anthropic API</span>
+            <span class="skill-tag">AutoCAD</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Professional Strengths</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Risk Assessment</span>
+            <span class="skill-tag">Team Leadership</span>
+            <span class="skill-tag">Client Communication</span>
+            <span class="skill-tag">Process Optimization</span>
+            <span class="skill-tag">Agile Coordination</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <div class="section-inner">
+      <p class="section-label">Certifications</p>
+      <h2 class="section-title">Credentials</h2>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-body">
+          <h3>IBM AI Engineering Professional Certificate</h3>
+          <p>Coursera · Machine Learning, Neural Networks, Deep Learning, Python for AI Development</p>
+          <span class="cert-year">Completed 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-inner contact-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-desc" style="margin: 0 auto 0;">
+        I'm actively looking for junior AI/ML engineering roles. If you're building something
+        interesting or hiring, reach out.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:cadger808@gmail.com" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,12 2,6"/>
+          </svg>
+          cadger808@gmail.com
+        </a>
+        <a href="https://github.com/808cadger" target="_blank" rel="noopener" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          github.com/808cadger
+        </a>
+        <a href="tel:+18084782996" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          808-478-2996
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built by Christopher Cadger &nbsp;·&nbsp; Honolulu, Hawaii &nbsp;·&nbsp; 2026</p>
+  </footer>
+
+</body>
+</html>
