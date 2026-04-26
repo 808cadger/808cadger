@@ -1,5 +1,30 @@
 # Christopher Cadger — AI Engineer
 
+<!-- INSTALL-START -->
+## Install and run
+
+These instructions install and run `808cadger` from a fresh clone.
+
+### Clone
+```bash
+git clone https://github.com/808cadger/808cadger.git
+cd 808cadger
+```
+
+### Use this repository
+```bash
+# Documentation/profile repository. No install step is required.
+```
+
+### AI/API setup
+- If the app has AI features, add the required provider key in the app settings or local `.env` file.
+- Browser-only apps store user-provided API keys on the local device unless a backend endpoint is configured.
+
+### License
+- Apache License 2.0. See [`LICENSE`](./LICENSE).
+<!-- INSTALL-END -->
+
+
 **Pearl City, Hawaii** · cadger808@gmail.com · [808cadger.github.io](https://808cadger.github.io) · [LinkedIn](https://linkedin.com/in/christopher-cadger)
 
 ---
