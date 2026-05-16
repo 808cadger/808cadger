@@ -1,5 +1,13 @@
 # Christopher Cadger — AI Engineer
 
+## Download Links
+
+| Item | Link |
+|----------|------|
+| Portfolio | [Open the public portfolio](https://808cadger.github.io) |
+| Source | [Download the GitHub source ZIP](https://github.com/808cadger/808cadger/archive/refs/heads/main.zip) |
+| Repository | [View on GitHub](https://github.com/808cadger/808cadger) |
+
 <!-- INSTALL-START -->
 ## Install and run
 
@@ -31,7 +39,7 @@ cd 808cadger
 
 AI engineer with 25+ years of construction project management turned software builder. IBM AI Engineering certified (2025). I ship production apps and benchmarked AI systems.
 
-**18 apps deployed** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
+**19 apps deployed** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
 
 ---
 
@@ -63,6 +71,7 @@ AI engineer with 25+ years of construction project management turned software bu
 | [Construction Safety AI](https://github.com/808cadger/construction-safety-ai) | YOLOv8 PPE compliance monitor for job sites |
 | [Archer Travel](https://github.com/808cadger/archer-travel) | Claude Vision ID verification for travel |
 | [Zephyr](https://github.com/808cadger/zephyr) | Free open PWA app store — no gatekeeping |
+| [CodeFixer](https://github.com/808cadger/CodeFixer) | Local-first PWA that catches Python/JavaScript mistakes, explains them, and applies safe fixes |
 | [TacoMap](https://github.com/808cadger/tacomap) | Taco & Latin food discovery across America |
 | [time~save~shopping](https://github.com/808cadger/time-save-shopping) | AI grocery agent — detects store entry, guides your list |
 
