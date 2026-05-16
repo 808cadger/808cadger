@@ -29,13 +29,23 @@ cd 808cadger
 
 ---
 
-AI engineer with 25+ years of construction project management turned software builder. IBM AI Engineering certified (2025). I ship production apps — not demos.
+AI engineer with 25+ years of construction project management turned software builder. IBM AI Engineering certified (2025). I ship production apps and benchmarked AI systems.
 
-**18 apps deployed** across Android, PWA, and Electron — all live, all open source.
+**18 apps deployed** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
 
 ---
 
-## Featured Projects
+## Proof-Heavy AI Projects
+
+| Project | What it proves |
+|-----|-------------|
+| [BuildSpec-RAG](https://github.com/808cadger/BuildSpec-RAG) | Construction-spec RAG with citations, retrieval evals, and prompt-injection checks |
+| [PermitRisk-ML](https://github.com/808cadger/PermitRisk-ML) | Tabular ML workflow with generated data, baseline comparison, metrics, feature importance, and model card |
+| [ai-inference-deploy-benchmark](https://github.com/808cadger/ai-inference-deploy-benchmark) | FastAPI inference service with Docker, CI, health checks, tests, and latency benchmark harness |
+
+---
+
+## Deployed Apps
 
 | App | What it does |
 |-----|-------------|
