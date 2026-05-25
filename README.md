@@ -39,7 +39,7 @@ cd 808cadger
 
 AI engineer with 25+ years of construction project management turned software builder. IBM AI Engineering certified (2025). I ship production apps and benchmarked AI systems.
 
-**19 apps deployed** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
+**18 apps shipped** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
 
 ---
 
@@ -60,13 +60,13 @@ AI engineer with 25+ years of construction project management turned software bu
 | [GlowAI](https://github.com/808cadger/GlowAI) | Agentic Claude AI skincare analysis — 5 custom tools, AM/PM routines, progress tracking |
 | [CourtAide](https://github.com/808cadger/courtaide) | AI legal assistant for pro se filers — case analysis, document drafts, deadlines |
 | [FarmSense](https://github.com/808cadger/FarmSense) | Scan a crop → diagnosis + treatment plan + harvest schedule |
-| [JobHalo](https://github.com/808cadger/Jobhalo) | AI job agent — searches 5 boards, scores matches, writes cover letters |
+| [JobHalo](https://codeberg.org/cadger808/Jobhalo) | AI job agent — searches 5 boards, scores matches, writes cover letters |
 | [HaloGuard](https://github.com/808cadger/haloguard) | Silent AI fraud detection + personal AI assistant |
 | [LifeOS](https://github.com/808cadger/lifeOS) | Personal AI operating system — schedule, bills, deadlines, reminders |
 | [AutoIQ](https://github.com/808cadger/AutoIQ) | Vehicle damage detection + instant cost estimate |
-| [AmbientGuide](https://github.com/808cadger/AmbientGuide) | Privacy-first ambient AI agent — zero data retention |
+| [AmbientGuide](https://codeberg.org/cadger808/AmbientGuide) | Privacy-first ambient AI agent — no application-side conversation storage |
 | [simper~decide](https://github.com/808cadger/simper-decide) | AI life advisor across 20 domains |
-| [ModelPulse](https://github.com/808cadger/modelpulse) | Daily AI model briefings for builders |
+| [ModelPulse](https://codeberg.org/cadger808/modelpulse) | Daily AI model briefings for builders |
 | [RepairIQ](https://github.com/808cadger/repairiq) | Know what you should pay for any home repair |
 | [Construction Safety AI](https://github.com/808cadger/construction-safety-ai) | YOLOv8 PPE compliance monitor for job sites |
 | [Archer Travel](https://github.com/808cadger/archer-travel) | Claude Vision ID verification for travel |
