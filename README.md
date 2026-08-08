@@ -39,7 +39,7 @@ cd 808cadger
 
 AI engineer with 25+ years of construction project management turned software builder. IBM AI Engineering certified (2025). I ship production apps and benchmarked AI systems.
 
-**18 apps shipped** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
+**19 apps shipped** across Android, PWA, and Electron — plus focused AI engineering repos for RAG, tabular ML, and production deployment.
 
 ---
 
@@ -57,6 +57,7 @@ AI engineer with 25+ years of construction project management turned software bu
 
 | App | What it does |
 |-----|-------------|
+| [808 Tech Services](https://808techserviceshi.cc) | Full-stack Next.js site for a real Oʻahu tech-support business — live in production, self-hosted with a Cloudflare Tunnel ([source](https://github.com/808cadger/808-tech-services)) |
 | [GlowAI](https://github.com/808cadger/GlowAI) | Agentic Claude AI skincare analysis — 5 custom tools, AM/PM routines, progress tracking |
 | [CourtAide](https://github.com/808cadger/courtaide) | AI legal assistant for pro se filers — case analysis, document drafts, deadlines |
 | [FarmSense](https://github.com/808cadger/FarmSense) | Scan a crop → diagnosis + treatment plan + harvest schedule |
@@ -79,7 +80,7 @@ AI engineer with 25+ years of construction project management turned software bu
 
 ## Stack
 
-`Claude AI` `Python` `JavaScript` `Kotlin` `React Native` `FastAPI` `Capacitor` `Android` `YOLOv8` `TensorFlow Lite` `Electron`
+`Claude AI` `Python` `JavaScript` `TypeScript` `Next.js` `Tailwind CSS` `Kotlin` `React Native` `FastAPI` `Capacitor` `Android` `YOLOv8` `TensorFlow Lite` `Electron`
 
 ---
 
